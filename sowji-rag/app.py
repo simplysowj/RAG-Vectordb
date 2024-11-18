@@ -89,7 +89,7 @@ def store_conversation(conversation_id, user_message, bot_message, answered):
     }
     conversations_collection.insert_one(data)
 
-embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
+embeddings=OpenAIEmbeddings()
 
 #using FAISS as a vector DB
 if os.path.exists(faiss_index):
