@@ -44,7 +44,7 @@ conversations_collection = db['conversations']
 
 if "OPENAI_API_KEY" in os.environ:
     openai_api_key = os.getenv("OPENAI_API_KEY")
-else: openai_api_key = st.secrets["OPENAI_API_KEY"]
+else: openai_api_key = st.secrets["openai"]["OPENAI_API_KEY"]
 
 
 if not openai_api_key:
