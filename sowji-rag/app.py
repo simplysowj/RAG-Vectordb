@@ -55,6 +55,9 @@ else:
         placeholder="Paste your OpenAI API key, sk-",
         type="password"
     )
+
+if not openai_api_key:
+    st.error("OpenAI API key is missing. Please provide it in Streamlit secrets or input it manually.")
 # Check if the API key is successfully retrieved
 if openai_api_key:
     st.success("OpenAI API key successfully loaded!")
