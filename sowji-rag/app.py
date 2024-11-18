@@ -31,7 +31,8 @@ if "mongodB_pass" in os.environ:
     mongodB_pass = os.getenv("mongodB_pass")
 else: mongodB_pass = st.secrets["mongodb"]["mongodB_pass"]
 # Setting up a mongo_db connection to store conversations for deeper analysis
-uri = f"mongodb+srv://simplysowj:{mongodB_pass}@cluster0.96b5s.mongodb.net/"
+#uri = f"mongodb+srv://simplysowj:{mongodB_pass}@cluster0.96b5s.mongodb.net/"
+uri = "mongodb+srv://simplysowj:"+mongodB_pass+"@cluster0.96b5s.mongodb.net/?retryWrites=true&w=majority"
 
 @st.cache_resource
 def init_connection():
