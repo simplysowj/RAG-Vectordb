@@ -27,21 +27,21 @@ def is_valid_json(data):
         return False
 
 
-if "mongodB_pass" in os.environ:
-    mongodB_pass = os.getenv("mongodB_pass")
-else: mongodB_pass = st.secrets["mongodb"]["mongodB_pass"]
+#if "mongodB_pass" in os.environ:
+   # mongodB_pass = os.getenv("mongodB_pass")
+#else: mongodB_pass = st.secrets["mongodb"]["mongodB_pass"]
 # Setting up a mongo_db connection to store conversations for deeper analysis
 #uri = f"mongodb+srv://simplysowj:{mongodB_pass}@cluster0.96b5s.mongodb.net/"
-uri = "mongodb+srv://simplysowj:"+mongodB_pass+"@cluster0.96b5s.mongodb.net/?retryWrites=true&w=majority"
+#uri = "mongodb+srv://simplysowj:"+mongodB_pass+"@cluster0.96b5s.mongodb.net/?retryWrites=true&w=majority"
 
-@st.cache_resource
-def init_connection():
-    return MongoClient(uri, server_api=ServerApi('1'))
-client = init_connection()
+#@st.cache_resource
+#def init_connection():
+ #   return MongoClient(uri, server_api=ServerApi('1'))
+#client = init_connection()
 
 
-db = client['conversations_db']
-conversations_collection = db['conversations']
+#db = client['conversations_db']
+#conversations_collection = db['conversations']
 
 if "OPENAI_API_KEY" in os.environ:
     openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -86,7 +86,7 @@ def store_conversation(conversation_id, user_message, bot_message, answered):
         "bot_message": bot_message,
         "answered": answered
     }
-    conversations_collection.insert_one(data)
+   # conversations_collection.insert_one(data)
 
 embeddings=OpenAIEmbeddings(openai_api_key=openai_api_key)
 
