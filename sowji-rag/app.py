@@ -55,7 +55,11 @@ else:
         placeholder="Paste your OpenAI API key, sk-",
         type="password"
     )
-    
+# Check if the API key is successfully retrieved
+if openai_api_key:
+    st.success("OpenAI API key successfully loaded!")
+else:
+    st.error("Unable to load OpenAI API key. Please provide it.")
 
 #Creating Streamlit title and adding additional information about the bot
 st.title("Sowjanya's resumeGPT")
