@@ -46,7 +46,7 @@ if "OPENAI_API_KEY" in os.environ:
     openai_api_key = os.getenv("OPENAI_API_KEY")
 # If not found in environment, check if it's available in Streamlit secrets
 elif "OPENAI_API_KEY" in st.secrets:
-    openai_api_key = st.secrets["OPENAI_API_KEY"]
+    openai_api_key = st.secrets["openai"]["OPENAI_API_KEY"]
 # If not found anywhere, ask the user to input the API key
 else:
     openai_api_key = st.sidebar.text_input(
