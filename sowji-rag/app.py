@@ -46,15 +46,9 @@ conversations_collection = db['conversations']
 if "OPENAI_API_KEY" in os.environ:
     openai_api_key = os.getenv("OPENAI_API_KEY")
 # If not found in environment, check if it's available in Streamlit secrets
-elif "OPENAI_API_KEY" in st.secrets:
+else: "OPENAI_API_KEY" in st.secrets:
     openai_api_key = st.secrets["openai"]["OPENAI_API_KEY"]
-# If not found anywhere, ask the user to input the API key
-else:
-    openai_api_key = st.sidebar.text_input(
-        label="#### Your OpenAI API key 👇",
-        placeholder="Paste your OpenAI API key, sk-",
-        type="password"
-    )
+
 
 if not openai_api_key:
     st.error("OpenAI API key is missing. Please provide it in Streamlit secrets or input it manually.")
