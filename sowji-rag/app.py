@@ -15,6 +15,7 @@ from pymongo.server_api import ServerApi
 import uuid
 import json
 import time
+from langchain.embeddings.openai import OpenAIEmbeddings
 
 import datetime
 
