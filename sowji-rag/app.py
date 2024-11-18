@@ -42,12 +42,9 @@ client = init_connection()
 db = client['conversations_db']
 conversations_collection = db['conversations']
 
-# Check if the API key is set in environment variables
 if "OPENAI_API_KEY" in os.environ:
     openai_api_key = os.getenv("OPENAI_API_KEY")
-# If not found in environment, check if it's available in Streamlit secrets
-else: "OPENAI_API_KEY" in st.secrets:
-    openai_api_key = st.secrets["openai"]["OPENAI_API_KEY"]
+else: openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 
 if not openai_api_key:
