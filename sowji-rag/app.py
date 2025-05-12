@@ -22,7 +22,32 @@ def is_valid_json(data):
 st.title("Sowjanya's resumeGPT")
 with st.expander("⚠️Disclaimer"):
     st.write("""This is a work in progress chatbot based on a large language model. It can answer questions about Sowjanya""")
+st.markdown("""
+### How to get an OpenAI API Key
 
+To use this chatbot, you'll need an OpenAI API key. Here's how to get one:
+
+1. **Go to [OpenAI Platform](https://platform.openai.com/)**
+   - Sign up or log in to your account
+
+2. **Access API Keys**
+   - Click your profile icon (top-right)
+   - Select "View API keys"
+
+3. **Create New Key**
+   - Click "Create new secret key"
+   - Name it (e.g., "ResumeGPT")
+   - Copy the key (it starts with `sk-` and won't be shown again!)
+
+4. **Enter it below** ⬇️
+   - Paste in the sidebar input box
+   - The app will verify it automatically
+
+⚠️ **Important Notes:**
+- Keys are sensitive - don't share them!
+- Free tier has usage limits
+- You may need to add payment method for continued use
+""")
 # Get OpenAI API key from user
 openai_api_key = st.sidebar.text_input("Enter your OpenAI API key:", type="password")
 
