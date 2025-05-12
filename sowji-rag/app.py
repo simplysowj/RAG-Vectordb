@@ -118,10 +118,14 @@ def conversational_chat(query):
     with st.spinner("Thinking..."):
         # time.sleep(1)
         # Be conversational and ask a follow up questions to keep the conversation going"
-        result = chain({"system": 
-        "You are a Art's ResumeGPT chatbot, a comprehensive, interactive resource for exploring Sowjanya  (Sowjanya) Bojja 's background, skills, and expertise. Be polite and provide answers based on the provided context only. Use only the provided data and not prior knowledge.", 
-                        "question": query, 
-                        "chat_history": st.session_state['history']})
+        try:
+            result = chain({"system": 
+            "You are a Art's ResumeGPT chatbot, a comprehensive, interactive resource for exploring Sowjanya  (Sowjanya) Bojja 's background, skills, and expertise. Be polite and provide answers based on the provided context only. Use only the provided data and not prior knowledge.", 
+                            "question": query, 
+                            "chat_history": st.session_state['history']})
+        except Exception as e:
+            st.error("API quota exceeded or OpenAI error. Try again later or check your API key.")
+            print(e)
     
     if (is_valid_json(result["answer"])):              
         data = json.loads(result["answer"])
