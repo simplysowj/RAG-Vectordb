@@ -25,6 +25,27 @@ def is_valid_json(data):
 
 # Creating Streamlit title and adding additional information about the bot
 st.title("Sowjanya's resumeGPT")
+# Display instructions to the user on how to get OpenAI API Key
+with st.expander("❓ How to Get Your OpenAI API Key", expanded=False):
+    st.markdown("""
+### 🔐 Steps to Get OpenAI API Key
+
+**1. Sign up / Sign in:**
+- Go to [https://platform.openai.com/signup](https://platform.openai.com/signup)
+- Already have an account? Sign in at [https://platform.openai.com/login](https://platform.openai.com/login)
+
+**2. Navigate to API Keys:**
+- After logging in, go to [API Keys](https://platform.openai.com/account/api-keys)
+
+**3. Create a New API Key:**
+- Click on **“Create new secret key”**
+- **Copy the key immediately** and store it securely. You won’t be able to see it again.
+
+**4. Add the API Key to Streamlit:**
+- Use environment variable:
+```bash
+export OPENAI_API_KEY='your-secret-key'
+
 with st.expander("⚠️Disclaimer"):
     st.write("""This is a work in progress chatbot based on a large language model. It can answer questions about Sowjanya""")
 
